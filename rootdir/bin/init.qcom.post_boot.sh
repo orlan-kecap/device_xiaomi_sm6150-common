@@ -309,6 +309,42 @@ case "$soc_id" in
     ;;
 esac
 
+    # BORE Scheduler tunning
+    echo 1 > /proc/sys/kernel/sched_boost
+    echo 1 > /proc/sys/kernel/sched_child_runs_first
+    echo 1 > /proc/sys/kernel/sched_cstate_aware
+    echo 0 > /proc/sys/kernel/sched_energy_aware
+    echo 1 > /proc/sys/kernel/sched_sync_hint_enable
+    echo 6000000 > /proc/sys/kernel/sched_latency_ns
+    echo 1000000 > /proc/sys/kernel/sched_min_granularity_ns
+    echo 500000 > /proc/sys/kernel/sched_wakeup_granularity_ns
+    echo 250000 > /proc/sys/kernel/sched_migration_cost_ns
+    echo 64 > /proc/sys/kernel/sched_nr_migrate
+    echo 8000000 > /proc/sys/kernel/sched_burst_cache_lifetime
+    echo 2 > /proc/sys/kernel/sched_burst_fork_atavistic
+    echo 12 > /proc/sys/kernel/sched_burst_penalty_offset
+    echo 750 > /proc/sys/kernel/sched_burst_penalty_scale
+    echo 1 > /proc/sys/kernel/sched_burst_smoothness_long
+    echo 1 > /proc/sys/kernel/sched_burst_smoothness_short
+    echo 980000 > /proc/sys/kernel/sched_rt_runtime_us
+    echo 1000000 > /proc/sys/kernel/sched_rt_period_us
+    echo 50 > /proc/sys/kernel/sched_rr_timeslice_ms
+    
+    # Manipulated Memory Management
+    echo 160 > /proc/sys/vm/swappiness
+    echo 35 > /proc/sys/vm/watermark_scale_factor
+    echo 30 > /proc/sys/vm/dirty_ratio
+    echo 10 > /proc/sys/vm/dirty_background_ratio
+    echo 150 > /proc/sys/vm/dirty_writeback_centisecs
+    echo 1500 > /proc/sys/vm/dirty_expire_centisecs
+    echo 131072 > /proc/sys/vm/extra_free_kbytes
+    echo 32768 > /proc/sys/vm/min_free_kbytes
+    echo 1 > /proc/sys/vm/overcommit_memory
+    echo 80 > /proc/sys/vm/overcommit_ratio
+    echo 1 > /proc/sys/vm/oom_kill_allocating_task
+    echo 0 > /proc/sys/vm/oom_dump_tasks
+    echo 0 > /proc/sys/vm/page-cluster
+
 # Enable PowerHAL hint processing
 setprop vendor.powerhal.init 1
 
