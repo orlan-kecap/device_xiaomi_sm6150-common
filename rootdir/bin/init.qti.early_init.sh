@@ -38,3 +38,9 @@ if [ "$soc_id" -eq 365 ]; then
 elif [ "$soc_id" -eq 355 ]; then
     setprop ro.vendor.qti.soc_model SM6150
 fi
+
+# copy GPU frequencies to vendor property
+if [ -f /sys/class/kgsl/kgsl-3d0/gpu_available_frequencies ]; then
+    gpu_freq=`cat /sys/class/kgsl/kgsl-3d0/gpu_available_frequencies` 2> /dev/null
+    setprop vendor.gpu.available_frequencies "$gpu_freq"
+fi
