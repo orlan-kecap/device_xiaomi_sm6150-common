@@ -23,7 +23,7 @@ $(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
 $(call inherit-product, vendor/xiaomi/sm6150-common/sm6150-common-vendor.mk)
 
 # Inherit from Dolby Atmos
-$(call inherit-product, vendor/sony/dolby/dolby.mk)
+$(call inherit-product, vendor/sony/dolby/sonydolby.mk)
 
 # Enable project quotas and casefolding for emulated storage without sdcardfs
 $(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
